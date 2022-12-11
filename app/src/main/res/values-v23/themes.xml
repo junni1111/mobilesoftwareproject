@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Melly.NoActionBar.Splash" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#0091FF</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#0091FF</item>
+        <!-- Status bar color. -->
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">#1A1E27</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowDisablePreview">true</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetDialog</item>
+        <!--        &lt;!&ndash; font Customize &ndash;&gt;-->
+        <!--        <item name="android:textViewStyle">@style/customTextViewFontStyle</item>-->
+        <!--        <item name="android:buttonStyle">@style/customButtonFontStyle</item>-->
+        <!--        <item name="android:editTextStyle">@style/customEditTextFontStyle</item>-->
+        <!--        <item name="android:radioButtonStyle">@style/customRadioButtonFontStyle</item>-->
+        <!--        <item name="android:checkboxStyle">@style/customCheckboxFontStyle</item>-->
+        <item name="android:timePickerStyle">@style/MyTimePickerTheme</item>
+        <item name="android:datePickerStyle">@style/MyDatePickerTheme</item>
+    </style>
+</resources>

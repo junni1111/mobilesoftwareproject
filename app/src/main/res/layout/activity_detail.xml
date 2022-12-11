@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                app:elevation="0dp">
+
+
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:id="@+id/collapsing_toolbar_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    app:collapsedTitleGravity="center"
+                    app:collapsedTitleTextAppearance="@style/CollapsingToolbarLayoutTitle"
+                    app:contentScrim="@color/white"
+                    app:expandedTitleTextAppearance="@style/CollapsingToolbarLayoutTitle"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                    <ImageView
+                        android:id="@+id/posterViewImg"
+                        android:layout_width="match_parent"
+                        android:layout_height="290dp"
+                        android:scaleType="centerCrop" />
+
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        app:contentInsetLeft="0dp"
+                        app:contentInsetStart="0dp"
+                        app:contentInsetStartWithNavigation="0dp"
+                        app:layout_collapseMode="pin"
+                        app:title=""
+                        app:titleTextColor="@color/white">
+
+                        <ImageView
+                            android:id="@+id/backBtn"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="10dp"
+                            android:padding="11.5dp"
+                            android:src="@drawable/ic_arrow" />
+
+                        <!--                        <TextView-->
+                        <!--                            android:id="@+id/memoryTopTitle"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:text="식사 제목"-->
+                        <!--                            android:textSize="16sp"-->
+                        <!--                            android:textStyle="bold" />-->
+
+                        <ImageView
+                            android:id="@+id/dotsBtn"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_gravity="end"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_more" />
+
+                    </com.google.android.material.appbar.MaterialToolbar>
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nested_scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingVertical="24dp">
+
+                    <ImageView
+                        android:id="@+id/shareBtn"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="16dp"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_share"
+                        app:layout_constraintBottom_toBottomOf="@id/dietTitle"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/dietTitle" />
+
+                    <TextView
+                        android:id="@+id/dietTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="식사 제목"
+                        android:textColor="#333333"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/dietDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="2022.00.00 오전 00:00"
+                        android:textColor="#B1B8C0"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="@id/dietTitle"
+                        app:layout_constraintTop_toBottomOf="@id/dietTitle" />
+
+                    <View
+                        android:id="@+id/dietDateLine"
+                        android:layout_width="1dp"
+                        android:layout_height="12dp"
+                        android:layout_marginStart="18dp"
+                        android:background="#D5D9DF"
+                        app:layout_constraintBottom_toBottomOf="@id/dietDate"
+                        app:layout_constraintStart_toEndOf="@id/dietDate"
+                        app:layout_constraintTop_toTopOf="@id/dietDate" />
+
+                    <com.willy.ratingbar.BaseRatingBar
+                        android:id="@+id/memoryDetailRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:isIndicator="true"
+                        android:numStars="5"
+                        android:rating="5"
+                        android:stepSize="1"
+                        app:layout_constraintBottom_toBottomOf="@id/dietDate"
+                        app:layout_constraintStart_toEndOf="@id/dietDateLine"
+                        app:layout_constraintTop_toTopOf="@id/dietDate"
+                        app:layout_constraintVertical_bias="1.0"
+                        app:srb_clickable="false"
+                        app:srb_drawableEmpty="@drawable/ic_star_empty"
+                        app:srb_drawableFilled="@drawable/ic_star_full"
+                        app:srb_isIndicator="true"
+                        app:srb_starHeight="14dp"
+                        app:srb_starPadding="3dp"
+                        app:srb_starWidth="15dp" />
+
+                    <TextView
+                        android:id="@+id/dietQuantity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="20dp"
+                        android:text="가볍게"
+                        android:textColor="#292F34"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:background="@drawable/ic_light"
+                        app:layout_constraintStart_toStartOf="@id/dietDate"
+                        app:layout_constraintTop_toBottomOf="@id/dietDate" />
+
+                    <TextView
+                        android:id="@+id/itemCCTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginTop="6dp"
+                        android:text="1개 500kcal"
+                        android:textColor="#333333"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/dietTitle"
+                        app:layout_constraintStart_toEndOf="@+id/dietTitle"
+                        app:layout_constraintTop_toTopOf="@+id/dietTitle" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="식사를 했었어요!"
+                        android:textColor="#333333"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@id/dietQuantity"
+                        app:layout_constraintStart_toEndOf="@id/dietQuantity"
+                        app:layout_constraintTop_toTopOf="@id/dietQuantity" />
+
+                    <View
+                        android:id="@+id/dietDetailLine"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="32dp"
+                        android:background="#F1F3F5"
+                        android:paddingHorizontal="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/dietQuantity" />
+
+                    <View
+                        android:id="@+id/dietDetailSquare"
+                        android:layout_width="0dp"
+                        android:layout_height="11dp"
+                        android:background="#F9FAFC"
+                        android:paddingHorizontal="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/dietDetailLine" />
+
+                    <TextView
+                        android:id="@+id/memoTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="24dp"
+                        android:text="메모"
+                        android:textColor="#333333"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/dietDetailSquare" />
+
+                    <TextView
+                        android:id="@+id/memoTxt"
+                        android:layout_width="0dp"
+                        android:layout_height="140dp"
+                        android:layout_margin="16dp"
+                        android:padding="22dp"
+                        android:text="달다구리로 당충전을 하기 위해 카페 모카를 마셨다! 남자친구가 여행을 간 지 5일이 지나 너무 스트레스를 받는다. 심지어 머리까지 아프다. 달달한 초코 시럽을 잔뜩 넣어달라고 부탁드렸더니 친절하게 휘핑 크림도 많이 올려주셨다. :)"
+                        android:textColor="#666666"
+                        android:textSize="12sp"
+                        android:background="@drawable/r12_spinner_stroke_1px"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/memoTitle" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/dietDetailTagList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        app:layout_constraintTop_toBottomOf="@id/memoTxt" />
+
+                    <View
+                        android:id="@+id/dietDetailMapLine"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginVertical="20dp"
+                        android:background="#F1F3F5"
+                        android:paddingHorizontal="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/dietDetailTagList" />
+
+                    <TextView
+                        android:id="@+id/mapTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="24dp"
+                        android:text="지도"
+                        android:textColor="#333333"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/dietDetailMapLine" />
+
+                    <TextView
+                        android:id="@+id/mapLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Ganggu-myeon, Yeongdeok-gun, 경상북도, 한국"
+                        android:textColor="#666666"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="@id/dietTitle"
+                        app:layout_constraintTop_toBottomOf="@id/mapTitle" />
+
+                    <fragment
+                        android:id="@+id/map"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="36dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/mapLocation"
+                        android:name="com.google.android.gms.maps.SupportMapFragment"
+                        android:nestedScrollingEnabled="false"
+                        android:overScrollMode="never" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.core.widget.NestedScrollView>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
