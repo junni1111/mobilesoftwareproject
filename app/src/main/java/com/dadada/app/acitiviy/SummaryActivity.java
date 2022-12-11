@@ -54,8 +54,8 @@ public class SummaryActivity extends AppCompatActivity {
         });
 
         mainActivityViewModel.getCaloriesAfterDate((new Date().getTime()) - 3600 * 24 * 7 * 1000).observe(this, calories -> {
-            calorieTV.setText(String.format("%d Kcal", calories));
             if (calories != null) {
+                calorieTV.setText(String.format("%d Kcal", calories));
                 circleProgressBar.setProgress(calories);
             }
         });
